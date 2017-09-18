@@ -1,11 +1,13 @@
 const initialState = {
-  tasks: [{
-    title: 'test',
-    duration: '60',
-    start: '120'
-  }],
+  task: 'title'
 };
 
-export default function task(state = initialState) {
-  return state;
+export default function task(state = initialState, action) {
+  switch (action.type) {
+    case 'SET_TASK':
+      return { ...state, task: action.payload }
+
+    default:
+      return state
+  }
 }

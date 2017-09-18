@@ -1,14 +1,24 @@
-import React, { PropTypes, Component } from 'react'
+import React, {PropTypes, Component} from 'react'
 
 export default class Tasks extends Component {
+  onTaskBtnClick(e) {
+    this.props.setTask(e.target.textContent)
+  }
+
   render() {
-    const { tasks } = this.props
+    const { task } = this.props
     return <div>
-    <h2>You have {tasks.length} tasks</h2>
+    <p>
+      <button onClick={::this.onTaskBtnClick}>titling</button>
+      <button onClick={::this.onTaskBtnClick}>test</button>
+      <button onClick={::this.onTaskBtnClick}>task</button>
+    </p>
+      <h2>You have: {task} </h2>
     </div>
   }
 }
 
 Tasks.propTypes = {
-  tasks: PropTypes.array.isRequired
+  task: PropTypes.string.isRequired,
+  setTask: PropTypes.func.isRequired
 }

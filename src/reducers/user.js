@@ -1,5 +1,5 @@
 const initialState = {
-  name: 'Егор Павлюков',
+  name: 'Егор Павлюков'
 };
 
 export default function user(state = initialState) {

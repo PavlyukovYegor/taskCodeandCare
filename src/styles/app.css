@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.app{
+  color: #2c3e50;
+}
+
+p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+small{
+  font-size: 12px;
+}
+
+hr{
+  margin-bottom: 0px;
+  margin-top: 14px;
+  color: #f4f4f4;
+  height: 1px;
+  background-color: #f4f4f4;
+  border: none;
+}
+
+.calendar-wrapper{
+  margin-left: 10px;
+  position: relative;
+}
+
+.time-wrapper{
+  width: 45px;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.test-div{
+  width: 200px;
+  height: 60px;
+  background-color: #E2ECF5;
+  border-left: solid 3px #6E9ECF;
+  position: absolute;
+  top: 0;
+  left: 50px;
+}

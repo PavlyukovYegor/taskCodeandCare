@@ -27,6 +27,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader'
+      }, {
+        test:   /\.css$/,
+        loader: "style-loader!css-loader"
       }
     ]
   }

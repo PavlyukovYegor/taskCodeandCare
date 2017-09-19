@@ -1,8 +1,9 @@
 import React, {PropTypes, Component } from 'react'
+import DisplayTask from './DisplayTask'
 
 export default class Calendar extends Component {
   render() {
-    const { times } = this.props
+    const { times, displayTask } = this.props
     return <div className='calendar-wrapper'>
       {times.map((time) =>
       <div>
@@ -13,10 +14,12 @@ export default class Calendar extends Component {
         </div>
       </div>
       )}
+      <DisplayTask displayTask={displayTask}/>
     </div>
   }
 }
 
 Calendar.propTypes = {
-  times: PropTypes.array.isRequired
+  times: PropTypes.array.isRequired,
+  displayTask: PropTypes.array.isRequired
 }

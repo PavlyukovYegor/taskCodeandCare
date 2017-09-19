@@ -31,9 +31,45 @@ hr{
   border: none;
 }
 
+input{
+  width: 80%;
+  margin: 10px 5%;
+  color: #2c3e50;
+  padding-left: 15px;
+  line-height: 30px;
+  height: 35px;
+  border: solid 1px #2c3e50;
+  border-radius: 5px;
+}
+
+.submit-button{
+    width: 85%;
+    display: block;
+    margin: 10px 5%;
+    font-size: 18px;
+    line-height: 30px;
+    height: 40px;
+    color: #2ecc71;
+    background-color: #2c3e50;
+    border: solid 1px #2c3e50;
+    border-radius: 5px;
+}
+
+.user-wrapper{
+  width: 25%;
+  float: right;
+}
+
 .calendar-wrapper{
+  width: 74%;
+  float: left;
   margin-left: 10px;
   position: relative;
+}
+
+.input-wrapper{
+  width: 25%;
+  float: right;
 }
 
 .time-wrapper{
@@ -42,12 +78,18 @@ hr{
   padding-right: 5px;
 }
 
-.test-div{
-  width: 200px;
-  height: 60px;
+.task-wrapper{
+  max-width: 200px;
   background-color: #E2ECF5;
   border-left: solid 3px #6E9ECF;
   position: absolute;
+  display: inline-block;
   top: 0;
-  left: 50px;
+  left: 0px;
+  margin-left: 50px;
+}
+
+.task-wrapper p{
+  margin: 0px 5px;
+  font-size: 14px;
 }

@@ -1,12 +1,19 @@
-var webpack = require('webpack')
-var webpackDevMiddleware = require('webpack-dev-middleware')
-var webpackHotMiddleware = require('webpack-hot-middleware')
-var config = require('./webpack.config')
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const webpackHotMiddleware = require('webpack-hot-middleware')
+const config = require('./webpack.config')
+const MongoClient = require('mongodb').MongoClient
+const bodyParser = require('body-parser')
+const db = require('./config/db')
+const cors = require('cors')
 
-var app = new(require('express'))()
-var port = 3000
+const app = new(require('express'))()
+const port = 3000
+app.use(bodyParser.urlencoded({exntended: true}))
+app.use(cors())
 
-var compiler = webpack(config)
+const compiler = webpack(config)
+
 app.use(webpackDevMiddleware(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
@@ -17,10 +24,16 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html')
 })
 
-app.listen(port, function(error) {
-  if (error) {
-    console.error(error)
-  } else {
-    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
-  }
+MongoClient.connect(db.url, (err, datebase) => {
+  if (err)
+    return console.log(err)
+
+  require('./app/routes')(app, datebase)
+  app.listen(port, function(error) {
+    if (error) {
+      console.error(error)
+    } else {
+      console.info(`==> 🌎  Listening on port ${port}. Open up http://localhost:${port}/ in your browser.`)
+    }
+  })
 })

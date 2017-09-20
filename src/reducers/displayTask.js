@@ -1,29 +1,46 @@
 const initialState = {
   displayTask: [
     {
-      start: 60,
+      start: 0,
       duration: 80,
       title: 'Text title long text for test long text and hieght him'
     },
     {
-      start: 120,
-      duration: 50,
-      title: 'Text title'
-    },
-    {
-      start: 60,
-      duration: 30,
-      title: 'Text title'
-    },
-    {
-      start: 350,
+      start: 0,
       duration: 80,
-      title: 'Text title'
+      title: 'Text title long text for test long text and hieght him'
     },
-
+    {
+      start: 0,
+      duration: 80,
+      title: 'Text title long text for test long text and hieght him'
+    },
+    {
+      start: 0,
+      duration: 80,
+      title: 'Text title long text for test long text and hieght him'
+    }
   ]
 };
 
-export default function displayTask(state = initialState) {
-  return state;
+export default function displayTask(state = initialState, action) {
+  switch (action.type) {
+    case 'DISPLAY_HAS_ERRORS':
+      return {
+        ...state,
+        bool: action.payload
+      }
+    case 'DISPLAY_IS_LOAD':
+      return {
+        ...state,
+        bool: action.payload
+      }
+    case 'DISPLAY_SUCCESS':
+      return {
+        ...state,
+        displayTask: action.payload
+      }
+    default:
+      return state
+  }
 }
